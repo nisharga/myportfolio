@@ -1,4 +1,3 @@
-
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { IWelcomeMessage } from '../types';
 
@@ -13,7 +12,7 @@ const Welcome = () => {
                 Change theme: <ThemeSwitcher />
             </div>
             <h1 className='text-primary-900'>{info.message}</h1>
-            <p>Nisharga</p>
+            <p>Nisharga Kabir</p>
         </div>
     );
 };
