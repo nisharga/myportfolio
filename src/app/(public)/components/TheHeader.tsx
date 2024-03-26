@@ -6,6 +6,8 @@ import { getBreakpointsWidth } from '@/utlis/themeHelper';
 import { HEADER_ITEMS } from '@/static';
 import { hideNavWhileScrolling } from '@/utlis/navHideWhileScrool';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import { fadeIn } from '@/components/animation';
+import { motion } from 'framer-motion';
 
 const TheHeader = () => {
     const [navbarCollapsed, setNavbarCollapsed] = useState(false);
@@ -18,10 +20,10 @@ const TheHeader = () => {
     }, [navbarCollapsed]);
 
     return (
-        <header
-            /* variants={fadeIn(0.5)}
-    initial="hidden"
-    animate="show" */
+        <motion.header
+            variants={fadeIn(0.5)}
+            initial='hidden'
+            animate='show'
             id='navbar'
             className='fixed inset-x-0 top-0 right-0 z-50 flex items-end justify-between px-8 py-4 duration-500 md:px-6 xl:px-12 backdrop-blur-lg'
         >
@@ -60,7 +62,7 @@ const TheHeader = () => {
                     </ul>
                 </nav>
             )}
-        </header>
+        </motion.header>
     );
 };
 
