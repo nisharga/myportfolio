@@ -69,8 +69,9 @@ const config: Config = {
             },
             fontFamily: {
                 nunito: ['var(--font-nunito-sans)'],
-                rubik: ['var(--font-rubik-sans)']
-            },
+                rubik: ['var(--font-rubik-sans)'],
+                signature: ['agustina', 'sans-serif'],
+            }, 
             boxShadow: {
                 base: '0px 24px 60px 0px rgba(21, 24, 38, 0.15)'
             }

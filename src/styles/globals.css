@@ -41,3 +41,10 @@
         scrollbar-width: none; /* Firefox */
     }
 }
+
+@layer base {
+    @font-face {
+        font-family: 'agustina';
+        src: url('/fonts/Agustina-Signature.otf') format('opentype');
+    }
+}
