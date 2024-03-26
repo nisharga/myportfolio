@@ -1,5 +1,4 @@
 import {
-    FONT_DEFAULT,
     SITE_DESCRIPTION_DEFAULT,
     SITE_TITLE_DEFAULT,
     SITE_TITLE_TEMPLATE_DEFAULT,
@@ -12,6 +11,7 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import React from 'react';
 import { TheSidebar } from './components';
+import fontVariables from '@/configs/appConfigs';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_DOMAIN),
@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang='en'>
-            <body className={`${FONT_DEFAULT.variable} ${switchThemeDuration}`}>
+            <body className={`${fontVariables} ${switchThemeDuration}`}>
                 <ThemeProvider
                     attribute='class'
                     defaultTheme='system'
