@@ -1,10 +1,9 @@
-import { HeroArea } from './components';
+import { HeroSection } from './components/HeroSection';
 
 const page = () => {
     return (
         <>
-            <div className='py-10'></div>
-            <HeroArea />
+            <HeroSection />
         </>
     );
 };
