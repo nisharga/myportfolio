@@ -1,10 +1,12 @@
-import React from "react";
-import { Welcome } from "./components";
+import { HeroArea } from './components';
 
 const page = () => {
-  return <div>
-    <Welcome />
-  </div>;
+    return (
+        <>
+            <div className='py-10'></div>
+            <HeroArea />
+        </>
+    );
 };
 
 export default page;
