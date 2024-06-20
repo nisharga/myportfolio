@@ -11,7 +11,7 @@ const Welcome = () => {
             <div className='flex mb-2 gap-4'>
                 Change theme: <ThemeSwitcher />
             </div>
-            <h1 className='text-primary-900'>{info.message}</h1>
+            <h1 className='text-first-900'>{info.message}</h1>
             <p>Nisharga Kabir</p>
         </div>
     );
