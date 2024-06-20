@@ -23,7 +23,7 @@ const Wrapper = ({
         return (
             <MotionTag
                 id={id}
-                className={`py-24 md:py-32 ${className}`}
+                className={`pt-24 pb-12 md:pt-32 ${className}`}
                 {...rest}
             >
                 {children}
@@ -46,7 +46,11 @@ const Wrapper = ({
     const CustomTag = `${as}` as ElementType;
 
     return (
-        <CustomTag id={id} className={`py-24 md:py-32 ${className}`} {...rest}>
+        <CustomTag
+            id={id}
+            className={`py-24 md:py-32 ${className} transition-all duration-300`}
+            {...rest}
+        >
             {children}
         </CustomTag>
     );
