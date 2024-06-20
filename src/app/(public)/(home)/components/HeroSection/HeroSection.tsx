@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { slideUp } from '@/components/animation';
 import Button from '@/components/core/buttons/Button';
 import { Typewriter } from 'react-simple-typewriter';
-import HeroImage from './HeroImage';
 
 const HeroSection = () => {
     const { cta, subtitle, title, tagline, description, specialText } =
@@ -21,90 +20,87 @@ const HeroSection = () => {
         DEFAULT_ANIMATION_DELAY + increment * i;
 
     return (
-        <div className='container'>
-            <div className='mx-6 md:mx-10 flex justify-between items-center'>
-                <Wrapper
-                    id='hero'
-                    className='flex flex-col justify-center h-full min-h-screen gap-6 mt-12 xs:gap-7 xs:mt-0'
+        <div className='container '>
+            <Wrapper
+                id='hero'
+                className='flex flex-col justify-center h-full min-h-screen gap-6 mt-12 xs:gap-7 xs:mt-0 mx-6 md:mx-10'
+            >
+                <motion.p
+                    variants={slideUp({ delay: getAnimationDelay(0) })}
+                    initial='hidden'
+                    animate='show'
+                    className='font-mono text-sm md:text-base text-accent'
                 >
-                    <motion.p
-                        variants={slideUp({ delay: getAnimationDelay(0) })}
+                    {subtitle}
+                </motion.p>
+
+                <div className='max-w-5xl text-4xl font-bold tracking-tighter md:text-7xl'>
+                    <motion.h1
+                        variants={slideUp({ delay: getAnimationDelay(1) })}
                         initial='hidden'
                         animate='show'
-                        className='font-mono text-sm md:text-base text-accent'
+                        className='text-slate-900 dark:text-slate-200 capitalize mb-2 leading-[1.1]'
                     >
-                        {subtitle}
-                    </motion.p>
-
-                    <div className='max-w-5xl text-4xl font-bold tracking-tighter md:text-7xl'>
-                        <motion.h1
-                            variants={slideUp({ delay: getAnimationDelay(1) })}
-                            initial='hidden'
-                            animate='show'
-                            className='text-slate-900 dark:text-slate-200 capitalize mb-2 leading-[1.1]'
-                        >
-                            {title}
-                        </motion.h1>
-                        <motion.h1
-                            variants={slideUp({ delay: getAnimationDelay(2) })}
-                            initial='hidden'
-                            animate='show'
-                            className='leading-[1.2]'
-                        >
-                            I am a{' '}
-                            <Typewriter
-                                words={TYPE_WRITTER_WORDS}
-                                loop={5}
-                                cursor
-                                cursorStyle='_'
-                                typeSpeed={70}
-                                deleteSpeed={50}
-                                delaySpeed={1000}
-                            />
-                        </motion.h1>
-                    </div>
-
-                    <motion.p
-                        variants={slideUp({ delay: getAnimationDelay(3) })}
+                        {title}
+                    </motion.h1>
+                    <motion.h1
+                        variants={slideUp({ delay: getAnimationDelay(2) })}
                         initial='hidden'
                         animate='show'
-                        className='max-w-xl text-base md:text-lg'
-                    ></motion.p>
-
-                    <motion.p
-                        variants={slideUp({ delay: getAnimationDelay(3) })}
-                        initial='hidden'
-                        animate='show'
-                        className='max-w-xl text-base md:text-lg'
+                        className='leading-[1.2]'
                     >
-                        {description}
-                    </motion.p>
+                        I am a{' '}
+                        <Typewriter
+                            words={TYPE_WRITTER_WORDS}
+                            loop={5}
+                            cursor
+                            cursorStyle='_'
+                            typeSpeed={70}
+                            deleteSpeed={50}
+                            delaySpeed={1000}
+                        />
+                    </motion.h1>
+                </div>
 
-                    <motion.p
-                        variants={slideUp({ delay: getAnimationDelay(4) })}
-                        initial='hidden'
-                        animate='show'
-                        className='font-mono text-xs md:text-sm text-accent'
-                    >
-                        {specialText}
-                    </motion.p>
+                <motion.p
+                    variants={slideUp({ delay: getAnimationDelay(3) })}
+                    initial='hidden'
+                    animate='show'
+                    className='max-w-xl text-base md:text-lg'
+                ></motion.p>
 
-                    <Button
-                        size='lg'
-                        type='link'
-                        variants={slideUp({ delay: getAnimationDelay(5) })}
-                        initial='hidden'
-                        animate='show'
-                        href={cta?.url ?? '#'}
-                        className={`mt-5 xs:mt-8 md:mt-10 ${
-                            cta.hideInDesktop ? 'md:hidden' : ''
-                        }`}
-                    >
-                        {cta.title}
-                    </Button>
-                </Wrapper>
-                <div className='hidden lg:block'>Hero Image Area</div>
-            </div>
+                <motion.p
+                    variants={slideUp({ delay: getAnimationDelay(3) })}
+                    initial='hidden'
+                    animate='show'
+                    className='max-w-xl text-base md:text-lg'
+                >
+                    {description}
+                </motion.p>
+
+                <motion.p
+                    variants={slideUp({ delay: getAnimationDelay(4) })}
+                    initial='hidden'
+                    animate='show'
+                    className='font-mono text-xs md:text-sm text-accent'
+                >
+                    {specialText}
+                </motion.p>
+
+                <Button
+                    size='lg'
+                    type='link'
+                    variants={slideUp({ delay: getAnimationDelay(5) })}
+                    initial='hidden'
+                    animate='show'
+                    href={cta?.url ?? '#'}
+                    className={`mt-5 xs:mt-8 md:mt-10 ${
+                        cta.hideInDesktop ? 'md:hidden' : ''
+                    }`}
+                >
+                    {cta.title}
+                </Button>
+            </Wrapper>
         </div>
     );
 };
