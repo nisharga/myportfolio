@@ -1,4 +1,4 @@
-import { AboutMe, Skills } from './components';
+import { AboutMe, Experince, Skills } from './components';
 import { HeroSection } from './components/HeroSection';
 
 const page = () => {
@@ -7,6 +7,7 @@ const page = () => {
             <HeroSection />
             <AboutMe />
             <Skills />
+            <Experince />
         </>
     );
 };
