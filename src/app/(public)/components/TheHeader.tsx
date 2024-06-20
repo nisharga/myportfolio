@@ -43,7 +43,7 @@ const TheHeader = () => {
             </div>
 
             {(navbarCollapsed || windowWidth > md) && (
-                <nav className='capitalize absolute text-sm duration-200 z-50 w-[90%] left-1/2 -translate-x-1/2 top-full h-max rounded-xl shadow-xl p-6 bg-bg-secondary md:blocks md:static md:w-auto md:left-auto md:transform-none md:top-auto md:rounded-none md:shadow-none md:p-0 md:h-auto'>
+                <nav className='capitalize absolute text-sm duration-200 z-50 w-[90%] left-1/2 -translate-x-1/2 top-full h-max rounded-xl shadow-xl p-6 bg-bg-secondary md:blocks md:static md:w-auto md:left-auto md:transform-none md:top-auto md:rounded-none md:shadow-none md:p-0 md:h-auto bg-gray-900   text-primary-50 md:text-gray-900 dark:text-primary-50 transition-all md:!bg-inherit'>
                     <ul className='flex flex-col items-stretch gap-3 list-style-none lg:gap-5 xl:gap-6 md:flex-row md:items-center'>
                         {HEADER_ITEMS.map(({ name, url }, i) => (
                             <NavItem
