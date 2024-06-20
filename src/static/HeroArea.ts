@@ -1,6 +1,6 @@
 export const HERO_AREA = {
     subtitle: 'Hi, my name is',
-    title: 'vatsal singh.',
+    title: 'Nisharga Kabir',
     tagline: 'I create visually pleasing interfaces for the web.',
     description:
         "I'm a passionate Front-End web developer having an experience of web applications with React.js & Next.js with TypeScript & TailwindCSS and UI/UX designing.",
@@ -12,4 +12,9 @@ export const HERO_AREA = {
     }
 };
 
-export const TYPE_WRITTER_WORDS = ['Frontend', 'Sleep', 'Code', 'Repeat!'];
+export const TYPE_WRITTER_WORDS = [
+    'Full Stack',
+    'Frontend Specialist',
+    'Developer',
+    'Designer!'
+];

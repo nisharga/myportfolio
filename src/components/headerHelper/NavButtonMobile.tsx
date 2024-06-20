@@ -11,7 +11,7 @@ const NavButtonMobile = ({ onClick, className, navbarCollapsed }: IProps) => {
     return (
         <>
             <button
-                className={`${className} w-7 h-7 group transition focus:outline-none`}
+                className={`${className} w-7 h-7 group transition focus:outline-none `}
                 onClick={onClick}
             >
                 <div
@@ -22,15 +22,15 @@ const NavButtonMobile = ({ onClick, className, navbarCollapsed }: IProps) => {
                     }`}
                 >
                     <div
-                        className={`w-7 h-0.5 bg-primary-500 ${classes} ${navbarCollapsed ? 'rotate-45' : ''}`}
+                        className={`w-7 h-0.5 bg-first-500 ${classes} ${navbarCollapsed ? 'rotate-45' : ''} bg-primary-500`}
                     ></div>
                     <div
-                        className={`${classes} w-6  h-0.5 bg-primary-500 ${
+                        className={`${classes} w-6  h-0.5 bg-first-500 ${
                             navbarCollapsed ? 'opacity-0' : 'opacity-100'
-                        }`}
+                        } bg-primary-500`}
                     ></div>
                     <div
-                        className={`${classes} ${navbarCollapsed ? '-rotate-45 w-7' : 'w-5 h-0.5 bg-primary-500'}`}
+                        className={`${classes} ${navbarCollapsed ? '-rotate-45 w-7' : 'w-5 h-0.5 bg-first-500'} bg-primary-500`}
                     ></div>
                 </div>
             </button>
