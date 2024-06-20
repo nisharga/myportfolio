@@ -1,11 +1,9 @@
-// import { BreakpointType, ProjectType } from '@/app/(public)/(home)/types/theme';
+import { BreakpointType, ProjectType } from '@/app/(public)/(home)/types/theme';
 
 import clsx, { ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import config from '../../tailwind.config';
-import { BreakpointType } from '@/app/(public)/(home)/types/theme';
-import { ProjectType } from '@/app/(public)/(home)/types/theme';
 
 const fullConfig = resolveConfig(config);
 
