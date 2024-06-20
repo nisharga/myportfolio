@@ -48,3 +48,13 @@
         src: url('/fonts/Agustina-Signature.otf') format('opentype');
     }
 }
+
+
+.skills_box_container_heading:after {
+    display: block;
+    height: 3px;
+    background-color: #9c27b0;
+    content: "";
+    width: 70px;
+    margin: 5px auto 10px;
+}
