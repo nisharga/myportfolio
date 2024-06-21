@@ -69,7 +69,6 @@ const Experince = () => {
     ] as const;
 
     const { theme } = useTheme();
-    console.log('🚀 ~ Experince ~ theme:', theme);
 
     return (
         <div className='container '>
