@@ -12,6 +12,7 @@ import PaginationList from './pagination/PaginationList';
 import Search from './Search/Search';
 import { Filter } from './Filter';
 import { Sorting } from './Sorting';
+import Link from 'next/link';
 
 const Projects = () => {
     const windowWidth = useWindowWidth();
@@ -110,6 +111,22 @@ const Projects = () => {
                         <TabsContent value='frontend'>frontend</TabsContent>
                         <TabsContent value='full_stack'>full_stack</TabsContent>
                     </Tabs>
+                </div>
+                <div className='-mt-10'>
+                    <motion.div
+                        className='flex items-center justify-center mt-5 '
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        whileHover={{ scale: 1.01 }}
+                    >
+                        <Link
+                            href='/projects'
+                            className='!px-5 py-3 text-white rounded-full !animate-bounce bg-main-500 bg-first-500 bg-primary-500'
+                        >
+                            All Project Page
+                        </Link>
+                    </motion.div>
                 </div>
             </Wrapper>
         </div>
