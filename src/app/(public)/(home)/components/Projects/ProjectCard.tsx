@@ -2,9 +2,19 @@
 
 import { motion, MotionProps } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const ProjectCard = ({ name, url, repo, year, img, tags, ...rest }: any) => {
+const ProjectCard = ({
+    name,
+    url,
+    repo,
+    year,
+    img,
+    tags,
+    project,
+    ...rest
+}: any) => {
     // To avoid hydration failed error
     const [domLoaded, setDomLoaded] = useState(false);
 
@@ -17,12 +27,8 @@ const ProjectCard = ({ name, url, repo, year, img, tags, ...rest }: any) => {
             {...rest}
             className='col-span-12 md:col-span-6 lg:col-span-4'
         >
-            <button
-                onClick={(e) => {
-                    // Don't run this if the clicked target is an anchor element
-                    if ((e.target as HTMLElement).closest('a')) return;
-                    window.open(url);
-                }}
+            <Link
+                href={`/projects/${project?.id}`}
                 className='block w-full overflow-hidden transition-all duration-200 rounded-md shadow-xl group bg-bg-secondary dark:shadow-2xl'
             >
                 <div className='overflow-hidden h-[200px]'>
@@ -61,7 +67,7 @@ const ProjectCard = ({ name, url, repo, year, img, tags, ...rest }: any) => {
                         <span className='mr-1'>{year}</span>
                     </h4>
                 </div>
-            </button>
+            </Link>
         </motion.div>
     ) : (
         <></>
