@@ -24,7 +24,7 @@ const HeroSection = () => {
         <div className='container '>
             <Wrapper
                 id='hero'
-                className='flex flex-col justify-center h-full min-h-screen gap-6 mt-12 xs:gap-7 xs:mt-0 mx-6 md:mx-10 '
+                className='flex flex-col justify-center h-full min-h-screen gap-6 mt-12 xs:gap-7 xs:mt-0 mx-0 sm:mx-6 md:mx-10 '
             >
                 <div className='grid grid-cols-12'>
                     <div className='col-span-12 lg:col-span-8 flex flex-col justify-center gap-6 xs:gap-7'>
@@ -56,7 +56,9 @@ const HeroSection = () => {
                                 animate='show'
                                 className='leading-[1.2]'
                             >
-                                I am a{' '}
+                                <span className='block md:inline mr-4'>
+                                    I am a
+                                </span>
                                 <Typewriter
                                     words={TYPE_WRITTER_WORDS}
                                     loop={5}
@@ -89,7 +91,7 @@ const HeroSection = () => {
                             variants={slideUp({ delay: getAnimationDelay(4) })}
                             initial='hidden'
                             animate='show'
-                            className='font-mono text-xs md:text-sm text-accent'
+                            className='font-mono text-base md:text-sm text-accent'
                         >
                             {specialText}
                         </motion.p>

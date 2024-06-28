@@ -74,10 +74,10 @@ const Experince = () => {
         <div className='container '>
             <Wrapper
                 id='experience'
-                className='flex flex-col justify-center h-full min-h-screen gap-6 mt-2 xs:gap-7 xs:mt-0 mx-6 md:mx-8'
+                className='flex flex-col justify-center h-full min-h-screen gap-6 mt-2 xs:gap-7 xs:mt-0 mx-0 sm:mx-6 md:mx-8'
             >
                 <motion.h2
-                    className='text-5xl text-center'
+                    className='text-4xl md:text-5xl text-center'
                     variants={slideUp({ delay: getAnimationDelay(1) })}
                     initial='hidden'
                     animate='show'
