@@ -3,6 +3,7 @@ import {
     Experince,
     Projects,
     Skills,
+    Recommendations,
     ContactForm
 } from './components';
 import { HeroSection } from './components/HeroSection';
@@ -15,6 +16,7 @@ const page = () => {
             <Skills />
             <Experince />
             <Projects />
+            <Recommendations />
             <ContactForm />
         </>
     );
