@@ -16,5 +16,6 @@ export const TYPE_WRITTER_WORDS = [
     'Full Stack',
     'Frontend Specialist',
     'Developer',
-    'Designer!'
+    'Designer',
+    'Team Leader'
 ];

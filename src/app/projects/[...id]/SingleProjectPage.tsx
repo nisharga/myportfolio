@@ -12,7 +12,7 @@ const SingleProjectPage = () => {
     return (
         <div>
             <motion.h2
-                className='text-5xl text-center mb-5'
+                className='text-4xl md:text-5xl text-center mb-5'
                 variants={slideUp({ delay: getAnimationDelay(0.2) })}
                 initial='hidden'
                 animate='show'
@@ -22,7 +22,7 @@ const SingleProjectPage = () => {
             <div className=''>
                 <LiveLinks />
             </div>
-            <p className='text-3xl lg:text-5xl mb-4 text-primary-500 dark:primary-50 '>
+            <p className='text-4xl md:text-5xl mb-4 text-primary-500 dark:primary-50 '>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
                 quos ea exercitationem perspiciatis labore quisquam pariatur,
                 totam debitis similique iusto magnam quia quidem cumque
