@@ -12,6 +12,9 @@ import type { Metadata } from 'next';
 import React from 'react';
 import { TheFooter, TheHeader } from './components';
 import fontVariables from '@/configs/appConfigs';
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store';
+import ReduxProviders from '@/providers/reduxProviders';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_DOMAIN),
@@ -33,15 +36,17 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
-                <ThemeProvider
-                    attribute='class'
-                    defaultTheme='system'
-                    enableSystem
-                >
-                    <TheHeader />
-                    <main>{children}</main>
-                    <TheFooter />
-                </ThemeProvider>
+                <ReduxProviders>
+                    <ThemeProvider
+                        attribute='class'
+                        defaultTheme='system'
+                        enableSystem
+                    >
+                        <TheHeader />
+                        <main>{children}</main>
+                        <TheFooter />
+                    </ThemeProvider>
+                </ReduxProviders>
             </body>
         </html>
     );
