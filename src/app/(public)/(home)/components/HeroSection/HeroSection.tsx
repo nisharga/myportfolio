@@ -9,6 +9,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import Image from 'next/image';
 import { useGetHeroDataQuery } from '@/redux/api/heroApi';
 import AvailableForJob from './AvailableForJob';
+import CurrentWork from './CurrentWork';
 
 const HeroSection = () => {
     const { cta, subtitle, title, tagline, description, specialText } =
@@ -91,9 +92,18 @@ const HeroSection = () => {
                         </motion.p>
 
                         <div className=''>
-                            <AvailableForJob
-                                getAnimationDelay={getAnimationDelay}
-                            />
+                            {data?.data[0]?.companyUrl &&
+                            data?.data[0]?.workCompany ? (
+                                <CurrentWork
+                                    companyUrl={data?.data[0]?.companyUrl}
+                                    workCompany={data?.data[0]?.workCompany}
+                                    getAnimationDelay={getAnimationDelay}
+                                />
+                            ) : (
+                                <AvailableForJob
+                                    getAnimationDelay={getAnimationDelay}
+                                />
+                            )}
                         </div>
                     </div>
 

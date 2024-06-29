@@ -1,8 +1,11 @@
 import { slideUp } from '@/components/animation';
 import Button from '@/components/core/buttons/Button';
+import { useGetResumeDataQuery } from '@/redux/api/resumeApi';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const AvailableForJob = ({ getAnimationDelay }: any) => {
+    const { data } = useGetResumeDataQuery('');
     return (
         <>
             <motion.p
@@ -25,7 +28,9 @@ const AvailableForJob = ({ getAnimationDelay }: any) => {
                 initial='hidden'
                 animate='show'
             >
-                See My Resume
+                <Link href={`${data?.data?.[0].link}`} target='_blank'>
+                    See My Resume
+                </Link>
             </Button>
         </>
     );
