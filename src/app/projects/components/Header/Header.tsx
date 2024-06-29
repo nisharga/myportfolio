@@ -25,7 +25,7 @@ const Header = () => {
         hideNavWhileScrolling({ when: !navbarCollapsed });
     }, [navbarCollapsed]);
     return (
-        <header className='fixed inset-x-0 top-0 right-0 z-50 flex items-end justify-between px-8 py-4 duration-500 md:px-6 xl:px-12 backdrop-blur-lg'>
+        <header className='fixed inset-x-0 top-0 right-0 z-50 flex items-end justify-between px-8 py-4 duration-500 md:px-6 xl:px-12 backdrop-blur-lg mt-2'>
             <div className='flex items-center gap-4 justify-center w-full'>
                 <div className=''>
                     <Link
