@@ -5,9 +5,10 @@ import { HERO_AREA, TYPE_WRITTER_WORDS } from '@/static/HeroArea';
 import { Wrapper } from '@/components';
 import { motion } from 'framer-motion';
 import { slideIn, slideUp } from '@/components/animation';
-import Button from '@/components/core/buttons/Button';
 import { Typewriter } from 'react-simple-typewriter';
 import Image from 'next/image';
+import { useGetHeroDataQuery } from '@/redux/api/heroApi';
+import AvailableForJob from './AvailableForJob';
 
 const HeroSection = () => {
     const { cta, subtitle, title, tagline, description, specialText } =
@@ -19,6 +20,8 @@ const HeroSection = () => {
 
     const getAnimationDelay = (i: number, increment = 0.15) =>
         DEFAULT_ANIMATION_DELAY + increment * i;
+
+    const { data, isFetching, isLoading } = useGetHeroDataQuery('');
 
     return (
         <div className='container '>
@@ -60,8 +63,8 @@ const HeroSection = () => {
                                     I am a
                                 </span>
                                 <Typewriter
-                                    words={TYPE_WRITTER_WORDS}
-                                    loop={5}
+                                    words={data?.data[0]?.changingText}
+                                    loop={25}
                                     cursor
                                     cursorStyle='_'
                                     typeSpeed={70}
@@ -84,32 +87,16 @@ const HeroSection = () => {
                             animate='show'
                             className='max-w-xl text-base md:text-lg'
                         >
-                            {description}
+                            {data?.data[0]?.title}
                         </motion.p>
 
-                        <motion.p
-                            variants={slideUp({ delay: getAnimationDelay(4) })}
-                            initial='hidden'
-                            animate='show'
-                            className='font-mono text-base md:text-sm text-accent'
-                        >
-                            {specialText}
-                        </motion.p>
-
-                        <Button
-                            size='lg'
-                            type='link'
-                            variants={slideUp({ delay: getAnimationDelay(5) })}
-                            initial='hidden'
-                            animate='show'
-                            href={cta?.url ?? '#'}
-                            className={`mt-5 xs:mt-8 md:mt-10 ${
-                                cta.hideInDesktop ? 'md:hidden' : ''
-                            }`}
-                        >
-                            {cta.title}
-                        </Button>
+                        <div className=''>
+                            <AvailableForJob
+                                getAnimationDelay={getAnimationDelay}
+                            />
+                        </div>
                     </div>
+
                     <motion.div
                         className='hidden lg:block lg:col-span-4'
                         variants={slideIn({
