@@ -7,6 +7,7 @@ import { useWindowWidth } from '../../hooks';
 import { getBreakpointsWidth } from '@/utlis/themeHelper';
 import Languages from './SkillList';
 import SkillList from './SkillList';
+import { useGetSkillsDataQuery } from '@/redux/api/skillsApi';
 
 const Skills = () => {
     const windowWidth = useWindowWidth();
@@ -57,6 +58,9 @@ const Skills = () => {
         'Postman',
         'AWS'
     ] as const;
+
+    const { data } = useGetSkillsDataQuery('');
+
     return (
         <div className='container '>
             <Wrapper
@@ -72,15 +76,21 @@ const Skills = () => {
                     Skills and Expertise
                 </motion.h2>
                 <div className='w-full mt-2 lg:mt-8 mx-auto flex flex-col md:gap-4 lg:flex-row justify-between items-center'>
-                    <SkillList title='Languages' skillsData={languageData} />
+                    <SkillList
+                        title='Languages'
+                        skillsData={data?.data[0]?.languages}
+                    />
                 </div>
                 <div className='w-full mt-2 lg:mt-8 mx-auto flex flex-col md:gap-4 lg:flex-row justify-between items-center'>
-                    <SkillList title='Freamwork' skillsData={freamworkData} />
+                    <SkillList
+                        title='Freamwork'
+                        skillsData={data?.data[0]?.frameworks}
+                    />
                 </div>
                 <div className='w-full mt-2 lg:mt-8 mx-auto flex flex-col md:gap-4 lg:flex-row justify-between items-center'>
                     <SkillList
                         title='Tools Technology'
-                        skillsData={toolsAndTechnologyData}
+                        skillsData={data?.data[0]?.technologies}
                     />
                 </div>
             </Wrapper>
