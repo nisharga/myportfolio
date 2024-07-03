@@ -31,7 +31,7 @@ const SkillList: FC<IProps> = ({ title, skillsData }) => {
         gap-4 
         text-lg text-gray-800'
             >
-                {skillsData.map(
+                {(skillsData ?? []).map(
                     (
                         skill:
                             | string
