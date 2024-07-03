@@ -13,9 +13,6 @@ import { Icons } from '@/components/Icons';
 import { useGetAboutDataQuery } from '@/redux/api/aboutmeApi';
 
 const AboutMe = () => {
-    const { cta, subtitle, title, tagline, description, specialText } =
-        HERO_AREA;
-
     const windowWidth = useWindowWidth();
     const md = getBreakpointsWidth('md');
     const DEFAULT_ANIMATION_DELAY = windowWidth <= md ? 0.9 : 1.7;
