@@ -16,6 +16,7 @@ import { FaServer } from 'react-icons/fa';
 import { LuGraduationCap } from 'react-icons/lu';
 import { useTheme } from 'next-themes';
 import { SchoolIcon, StarIcon, WorkflowIcon } from 'lucide-react';
+import { useGetExperinceDataQuery } from '@/redux/api/experinceApi';
 
 const Experince = () => {
     const windowWidth = useWindowWidth();
@@ -70,6 +71,9 @@ const Experince = () => {
 
     const { theme } = useTheme();
 
+    const { data } = useGetExperinceDataQuery('');
+    console.log('🚀 ~ Experince ~ data:', data);
+
     return (
         <div className='container '>
             <Wrapper
@@ -115,7 +119,7 @@ const Experince = () => {
                                                 : '0.4rem solid rgba(255, 255, 255, 0.5)'
                                     }}
                                     date={item.date}
-                                    icon={item.icon}
+                                    icon={<CgWorkAlt />}
                                     iconStyle={{
                                         background:
                                             theme === 'light'

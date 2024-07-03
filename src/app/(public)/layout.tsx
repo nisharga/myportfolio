@@ -15,6 +15,7 @@ import fontVariables from '@/configs/appConfigs';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import ReduxProviders from '@/providers/reduxProviders';
+import PreLoader from '@/preloader/preloader';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_DOMAIN),
@@ -36,6 +37,7 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
+                <PreLoader />
                 <ReduxProviders>
                     <ThemeProvider
                         attribute='class'
