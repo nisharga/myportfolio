@@ -13,6 +13,7 @@ import React from 'react';
 import fontVariables from '@/configs/appConfigs';
 import { TheFooter } from '../(public)/components';
 import { Header } from './components';
+import PreLoader from '@/preloader/preloader';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_DOMAIN),
@@ -34,6 +35,7 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
+                <PreLoader />
                 <ThemeProvider
                     attribute='class'
                     defaultTheme='system'

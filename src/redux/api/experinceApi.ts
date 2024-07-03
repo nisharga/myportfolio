@@ -5,7 +5,7 @@ const experienceApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
         getExperinceData: build.query({
             query: () => ({
-                url: `/experience`,
+                url: `/experince`,
                 method: 'GET'
             }),
             providesTags: [tagTypes.experience]
