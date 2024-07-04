@@ -11,12 +11,9 @@ import {
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { CgWorkAlt } from 'react-icons/cg';
-import { FaReact } from 'react-icons/fa';
-import { FaServer } from 'react-icons/fa';
-import { LuGraduationCap } from 'react-icons/lu';
 import { useTheme } from 'next-themes';
-import { SchoolIcon, StarIcon, WorkflowIcon } from 'lucide-react';
 import { useGetExperinceDataQuery } from '@/redux/api/experinceApi';
+import Link from 'next/link';
 
 const Experince = () => {
     const windowWidth = useWindowWidth();
@@ -26,53 +23,9 @@ const Experince = () => {
     const getAnimationDelay = (i: number, increment = 0.15) =>
         DEFAULT_ANIMATION_DELAY + increment * i;
 
-    const experiencesData = [
-        {
-            title: 'Product Designer',
-            location: 'Delhi, India',
-            description:
-                'Led the product design management for an e-learning Mobile & Web application, overseeing the implementation of various features to enhance user experience.',
-            icon: React.createElement(CgWorkAlt),
-            date: '2022-2023'
-        },
-        {
-            title: 'Post Graduate in Software Development',
-            location: 'Bangalore, India',
-            description:
-                'I enrolled in software development course with Upgard, also upskilled to the full stack.',
-            icon: React.createElement(LuGraduationCap),
-            date: '2022 - 2023'
-        },
-        {
-            title: 'Master in Computer Science',
-            location: 'London, UK',
-            description:
-                "I enrolled for master's in Computer Science in Liverpool John Moore's University.",
-            icon: React.createElement(LuGraduationCap),
-            date: '2023 - 2024'
-        },
-        {
-            title: 'Frontend Developer',
-            location: 'Delhi, India',
-            description:
-                "Developed 10+ Projects in frontend. My stack includes React, Next.js, TypeScript, Tailwind, Sanity and MongoDB. I'm open to full-time opportunities.",
-            icon: React.createElement(FaReact),
-            date: '2022 - 2024'
-        },
-        {
-            title: 'Full Stack Developer',
-            location: 'Delhi, India',
-            description:
-                "I'm now a up skilling myself to backend developement. Learning MongoDB, MySql and much more in my pipeline.",
-            icon: React.createElement(FaServer),
-            date: '2024 - present'
-        }
-    ] as const;
-
     const { theme } = useTheme();
 
     const { data } = useGetExperinceDataQuery('');
-    console.log('🚀 ~ Experince ~ data:', data);
 
     return (
         <div className='container '>
@@ -93,7 +46,7 @@ const Experince = () => {
                         className='my-custom-class line-class'
                         lineColor=''
                     >
-                        {experiencesData.map((item, index) => (
+                        {data?.data?.map((item: any, index: any) => (
                             <React.Fragment key={index}>
                                 <VerticalTimelineElement
                                     visible={true}
@@ -118,7 +71,7 @@ const Experince = () => {
                                                 ? '0.4rem solid #9ca3af'
                                                 : '0.4rem solid rgba(255, 255, 255, 0.5)'
                                     }}
-                                    date={item.date}
+                                    date={item?.monthFromTo}
                                     icon={<CgWorkAlt />}
                                     iconStyle={{
                                         background:
@@ -135,13 +88,21 @@ const Experince = () => {
                                     }}
                                 >
                                     <h3 className='font-semibold capitalize mb-2'>
-                                        {item.title}
+                                        {item?.position}
                                     </h3>
                                     <p className='font-normal !mt-0  mb-2'>
-                                        {item.location}
+                                        at{' '}
+                                        <Link
+                                            href={item?.companyLinkedin}
+                                            className='font-semibold underline'
+                                            target='_blank'
+                                        >
+                                            {item?.companyName}
+                                        </Link>
+                                        {', '} {item?.companyLocation}
                                     </p>
                                     <p className='!mt-1 !font-normal text-gray-700  mb-2 dark:text-white/75'>
-                                        {item.description}
+                                        {item?.jobResponsibility}
                                     </p>
                                 </VerticalTimelineElement>
                             </React.Fragment>
