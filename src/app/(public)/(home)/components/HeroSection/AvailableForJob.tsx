@@ -28,7 +28,7 @@ const AvailableForJob = ({ getAnimationDelay }: any) => {
                 initial='hidden'
                 animate='show'
             >
-                <Link href={`${data?.data?.[0].link}`} target='_blank'>
+                <Link href={`${data?.data?.[0]?.link}`} target='_blank'>
                     See My Resume
                 </Link>
             </Button>
