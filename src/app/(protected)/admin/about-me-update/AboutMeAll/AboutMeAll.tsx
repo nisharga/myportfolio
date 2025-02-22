@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 
 const AboutMeAll = () => {
     const [aboutMeList, setAboutMeList] = useState([]);
-    console.log('🚀 ~ AboutMeAll ~ aboutMeList:', aboutMeList);
 
     // Fetch all About Me data
     const fetchAboutMe = async () => {

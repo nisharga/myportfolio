@@ -16,6 +16,7 @@ import { useGetExperinceDataQuery } from '@/redux/api/experinceApi';
 import Link from 'next/link';
 
 const Experince = () => {
+    const MotionDiv = motion.create('div');
     const windowWidth = useWindowWidth();
     const md = getBreakpointsWidth('md');
     const DEFAULT_ANIMATION_DELAY = windowWidth <= md ? 0.9 : 1.7;

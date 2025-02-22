@@ -34,14 +34,10 @@ const AboutMeForm = () => {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log('Success:', result);
                 reset(); // Reset the form after successful submission
             } else {
-                console.error('Error:', response.statusText);
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        } catch (error) {}
     };
 
     return (

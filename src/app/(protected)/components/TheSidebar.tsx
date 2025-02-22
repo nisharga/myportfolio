@@ -12,6 +12,18 @@ const TheSidebar = () => {
             >
                 About Me Form
             </Link>
+            <Link
+                className='p-2 !underline pt-4 block'
+                href='/admin/project-update'
+            >
+                Project Update Details
+            </Link>
+            <Link
+                className='p-2 !underline pt-4 block'
+                href='/admin/project-update-single'
+            >
+                Project Update Single
+            </Link>
         </div>
     );
 };
