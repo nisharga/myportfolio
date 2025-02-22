@@ -6,7 +6,8 @@ import {
     Link,
     MoveRight,
     Quote,
-    CircleCheck
+    CircleCheck,
+    Eye
 } from 'lucide-react';
 
 export const Icons = {
@@ -17,6 +18,7 @@ export const Icons = {
     MoveRight,
     Quote,
     CircleCheck,
+    Eye,
     EmptyBox: (props: LucideProps) => (
         <svg
             {...props}
@@ -79,6 +81,19 @@ export const Icons = {
             xmlns='http://www.w3.org/2000/svg'
         >
             <polyline points='20 6 9 17 4 12'></polyline>
+        </svg>
+    ),
+    Search: (props: LucideProps) => (
+        <svg
+            fill='none'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            viewBox='0 0 24 24'
+            className='w-6 h-6'
+        >
+            <path d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
         </svg>
     )
 };
