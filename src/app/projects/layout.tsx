@@ -35,7 +35,6 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
-                <PreLoader />
                 <ThemeProvider
                     attribute='class'
                     defaultTheme='system'

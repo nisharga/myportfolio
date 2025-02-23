@@ -1,5 +1,4 @@
 'use client';
-import { HERO_AREA } from '@/static/HeroArea';
 import React from 'react';
 import { useWindowWidth } from '../../hooks';
 import { getBreakpointsWidth } from '@/utlis/themeHelper';
@@ -7,7 +6,6 @@ import { Wrapper } from '@/components';
 import { motion } from 'framer-motion';
 import { slideUp } from '@/components/animation';
 import Image from 'next/image';
-import Button from '@/components/core/buttons/Button';
 import Link from 'next/link';
 import { Icons } from '@/components/Icons';
 import { useGetAboutDataQuery } from '@/redux/api/aboutmeApi';
@@ -86,7 +84,6 @@ const AboutMe = () => {
                             alt='profile'
                             width={1000}
                             height={1000}
-                            loading={'lazy'}
                             className='w-full h-60 md:h-80 rounded-2xl object-cover   transition-all bg-violet-100 
                              '
                             src={data?.data?.[0]?.upload?.url}

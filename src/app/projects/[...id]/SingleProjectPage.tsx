@@ -22,9 +22,9 @@ const SingleProjectPage = () => {
     const getAnimationDelay = (i: number, increment = 0.15) =>
         1 + increment * i;
     const liveLinkBtnClass =
-        'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150 px-5 bg-primary-500 text-white hover:bg-primary-600 hover:text-white';
+        'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150 px-5 bg-gray-900 text-white hover:bg-gray-800 hover:text-white';
     const FrontendCodeBtnClass =
-        'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150 px-5 border border-primary-600 text-primary-600 hover:text-primary-600 dark:border-primary-500 dark:text-primary-500';
+        'py-3 mx-2 my-2 rounded-full font-bold leading-none translate-hover-2 hover:shadow-lg transition-all ease-in-out duration-150 px-5 border border-success text-success hover:text-success dark:border-success dark:text-success';
     return (
         <div className='mt-10 lg:mt-12'>
             <motion.h2

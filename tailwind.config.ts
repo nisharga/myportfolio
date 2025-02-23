@@ -62,7 +62,7 @@ const config: Config = {
                     800: '#E26BD7',
                     900: '#DF5AD2'
                 },
-                success: '#3CB371',
+                success: '#9c27b0',
                 error: '#ff4444',
                 warning: '#ffbb33',
                 info: '#33b5e5'
@@ -70,8 +70,8 @@ const config: Config = {
             fontFamily: {
                 nunito: ['var(--font-nunito-sans)'],
                 rubik: ['var(--font-rubik-sans)'],
-                signature: ['agustina', 'sans-serif'],
-            }, 
+                signature: ['agustina', 'sans-serif']
+            },
             boxShadow: {
                 base: '0px 24px 60px 0px rgba(21, 24, 38, 0.15)'
             }

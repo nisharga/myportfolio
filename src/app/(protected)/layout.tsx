@@ -38,9 +38,9 @@ export default function RootLayout({
                     defaultTheme='system'
                     enableSystem
                 >
-                    <main className='flex items-start justify-between gap-4'>
+                    <main className='flex items-start justify-between gap-4 w-full'>
                         <TheSidebar />
-                        {children}
+                        <div className='w-full'>{children}</div>
                     </main>
                 </ThemeProvider>
             </body>
