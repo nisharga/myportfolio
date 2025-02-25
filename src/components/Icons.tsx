@@ -95,5 +95,107 @@ export const Icons = {
         >
             <path d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
         </svg>
+    ),
+    NoInternet: (props: LucideProps) => (
+        <svg
+            {...props}
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 500 400'
+        >
+            <rect
+                x='250'
+                y='0'
+                width='250'
+                height='400'
+                fill='#f0f0f0'
+                rx='20'
+            />
+
+            <g transform='translate(50 50) scale(1.5)'>
+                <circle cx='60' cy='60' r='50' fill='#ffd983' />
+                <g transform='translate(40 50)'>
+                    <circle cx='0' cy='0' r='8' fill='#333' />
+                    <circle cx='40' cy='0' r='8' fill='#333' />
+                    <path
+                        d='M15 40 Q30 55 45 40'
+                        fill='none'
+                        stroke='#333'
+                        strokeWidth='3'
+                    />
+                    <path
+                        d='M-10 20 Q-30 0 -40 30 L-25 35'
+                        fill='#ffd983'
+                        stroke='#333'
+                        strokeWidth='2'
+                    />
+                </g>
+            </g>
+
+            <g transform='translate(270 80)'>
+                <path d='M0 0H220V140H0V0Z' fill='white' rx='15' />
+                <path d='M40 140 L20 160 50 140' fill='white' />
+                <foreignObject x='20' y='20' width='180' height='100'>
+                    <div
+                        style={{
+                            fontSize: '18px',
+                            lineHeight: '1.5',
+                            fontFamily: 'Arial, sans-serif',
+                            color: '#333'
+                        }}
+                    >
+                        <div style={{ marginBottom: '15px' }}>
+                            Backend not connected
+                        </div>
+                        <div>Reload the page Again</div>
+                    </div>
+                </foreignObject>
+                <rect x='22' y='38' width='2' height='40' fill='#333'>
+                    <animate
+                        attributeName='opacity'
+                        values='0;1'
+                        dur='0.8s'
+                        repeatCount='indefinite'
+                    />
+                </rect>
+            </g>
+
+            <g transform='translate(380 250)'>
+                {[...Array(3)].map((_, i) => (
+                    <circle key={i} cx={i * 20} cy='0' r='5' fill='#666'>
+                        <animate
+                            attributeName='fill'
+                            values='#666;#fff;#666'
+                            dur='1.2s'
+                            begin={`${i * 0.2}s`}
+                            repeatCount='indefinite'
+                        />
+                    </circle>
+                ))}
+            </g>
+
+            <circle
+                cx='160'
+                cy='200'
+                r='50'
+                fill='none'
+                stroke='#ff4444'
+                strokeWidth='3'
+            >
+                <animate
+                    attributeName='r'
+                    from='40'
+                    to='80'
+                    dur='2s'
+                    repeatCount='indefinite'
+                />
+                <animate
+                    attributeName='opacity'
+                    from='0.6'
+                    to='0'
+                    dur='2s'
+                    repeatCount='indefinite'
+                />
+            </circle>
+        </svg>
     )
 };

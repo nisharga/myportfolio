@@ -1,11 +1,9 @@
 'use client';
 import React from 'react';
 import {
-    Filter,
     PaginationList,
     ProjectCard,
-    Search,
-    Sorting
+    Search
 } from '../(public)/(home)/components';
 import { projectVariants } from '@/components/animation';
 
@@ -42,15 +40,12 @@ const page = () => {
     return (
         <div className='mt-24 container'>
             <div className='grid grid-cols-12 mb-7'>
-                <div className='col-span-12 lg:col-span-4 mb-5 lg:mb-0'>
-                    <Search />
-                </div>
+                <div className='col-span-12 lg:col-span-4 mb-5 lg:mb-0'>gh</div>
 
                 <div className='lg:col-span-4'></div>
 
                 <div className='col-span-12 lg:col-span-4 flex gap-4 justify-center lg:justify-end items-center'>
-                    <Filter />
-                    <Sorting />
+                    hu
                 </div>
             </div>
             <div className='grid grid-cols-12 gap-6'>
@@ -66,9 +61,7 @@ const page = () => {
                     />
                 ))}
             </div>
-            <div className=''>
-                <PaginationList />
-            </div>
+            <div className=''>{/* <PaginationList /> */}</div>
         </div>
     );
 };

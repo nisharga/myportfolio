@@ -36,7 +36,8 @@ const CreateSingleProject = () => {
                     body: formData
                 }
             );
-            if (response.ok) {
+
+            if (response.status == 200) {
                 toast.success('Project created successfully!');
             } else {
                 const errorData = await response.json();

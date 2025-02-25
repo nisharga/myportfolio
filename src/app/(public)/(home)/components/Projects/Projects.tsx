@@ -1,6 +1,6 @@
 'use client';
 import { Wrapper } from '@/components';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { slideUp } from '@/components/animation';
 import { useWindowWidth } from '../../hooks';
@@ -8,9 +8,9 @@ import { getBreakpointsWidth } from '@/utlis/themeHelper';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import PaginationList from './pagination/PaginationList';
 import Search from './Search/Search';
-import Link from 'next/link';
 import { PROJECT_TYPE } from '../../static';
-import { All, Frontend, FullStack, MobileApp } from './components';
+import { All, Frontend, FullStack, GetAll, MobileApp } from './components';
+import { SortOrder } from './SortOrder';
 
 const Projects = () => {
     const windowWidth = useWindowWidth();
@@ -21,7 +21,37 @@ const Projects = () => {
         DEFAULT_ANIMATION_DELAY + increment * i;
 
     const [searchValue, setSearchValue] = useState('');
-    console.log('🚀 ~ Projects ~ searchValue:', searchValue);
+    const [sortOrder, setSearchOrder] = useState('asc');
+    const [filter, setFilter] = useState('');
+    const [pageNumber, setPageNumber] = useState<number>(1);
+
+    const [fetchData, setFetchData] = useState<any>([]);
+
+    const API_BASE_URL = 'http://localhost:5000/api/v1/project';
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const params = new URLSearchParams({
+                    sortBy: 'order',
+                    sortOrder: sortOrder,
+                    ...(searchValue && { searchTerm: searchValue }),
+                    ...(filter && { category: filter }),
+                    page: pageNumber.toString(),
+                    limit: '3'
+                });
+
+                const response = await fetch(
+                    `${API_BASE_URL}?${params.toString()}`
+                );
+                const data = await response.json();
+                setFetchData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchProjects();
+    }, [searchValue, sortOrder, filter, pageNumber]);
 
     return (
         <div className='container'>
@@ -46,6 +76,7 @@ const Projects = () => {
                                         value={value}
                                         className='rounded'
                                         key={id}
+                                        onClick={() => setFilter(value)}
                                     >
                                         {title}
                                     </TabsTrigger>
@@ -59,36 +90,38 @@ const Projects = () => {
                                     searchValue={searchValue}
                                 />
                             </div>
-
-                            <div className='lg:col-span-4'></div>
-
+                            <div className='col-span-12 lg:col-span-4'></div>
                             <div
                                 className='col-span-12 lg:col-span-4 flex gap-4 justify-center 
                             lg:justify-end items-center'
                             >
-                                hi
+                                <SortOrder setSearchOrder={setSearchOrder} />
                             </div>
                         </div>
                         <TabsContent value='all'>
-                            <All />
+                            <All data={fetchData?.data} />
                         </TabsContent>
                         <TabsContent value='frontend'>
                             <Frontend />
                         </TabsContent>
-                        <TabsContent value='full_stack'>
+                        <TabsContent value='full-stack'>
                             <FullStack />
                         </TabsContent>
-                        <TabsContent value='mobile_app'>
+                        <TabsContent value='mobile-app'>
                             <MobileApp />
                         </TabsContent>
 
-                        <div className=''>
-                            <PaginationList />
+                        <div className='pt-4'>
+                            <PaginationList
+                                pageNumber={pageNumber}
+                                setPageNumber={setPageNumber}
+                                pageCount={fetchData?.meta?.total || 3}
+                            />
                         </div>
                     </Tabs>
                 </div>
-                <div className='-mt-10'>
-                    <GetAllButton />
+                <div className=''>
+                    <GetAll />
                 </div>
             </Wrapper>
         </div>
@@ -96,22 +129,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-const GetAllButton = () => {
-    return (
-        <motion.div
-            className='flex items-center justify-center mt-5 '
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            whileHover={{ scale: 1.01 }}
-        >
-            <Link
-                href='/projects'
-                className='!px-5 py-3 text-white rounded-full !animate-bounce bg-gray-900 dark:bg-primary-500'
-            >
-                All Project Page
-            </Link>
-        </motion.div>
-    );
-};

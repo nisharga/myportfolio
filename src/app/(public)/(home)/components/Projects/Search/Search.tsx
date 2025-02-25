@@ -56,9 +56,8 @@ const Search = ({ setSearchValue, searchValue }: SearchProps) => {
                 <input
                     type='search'
                     name='q'
-                    className='py-2 text-sm text-white dark:bg-gray-800 bg-white 
-                    rounded-md pl-10 focus:outline-none focus:bg-white 
-                    focus:text-gray-900 w-full'
+                    className='py-2 text-sm text-gray-600 dark:text-white dark:bg-gray-800 bg-white 
+                    rounded-md pl-10 w-full'
                     placeholder='Search...'
                     autoComplete='off'
                     value={inputValue}

@@ -13,9 +13,9 @@ export const HERO_AREA = {
 };
 
 export const TYPE_WRITTER_WORDS = [
-    'Full Stack',
-    'Frontend Specialist',
-    'Developer',
-    'Designer',
-    'Team Leader'
+    'Backend not connected',
+    'Reload The Page',
+    'Database connection Failed',
+    'Reload The Page',
+    'Try Again'
 ];
