@@ -58,7 +58,7 @@ const Search = ({ setSearchValue, searchValue }: SearchProps) => {
                     name='q'
                     className='py-2 text-sm text-gray-600 dark:text-white dark:bg-gray-800 bg-white 
                     rounded-md pl-10 w-full'
-                    placeholder='Search...'
+                    placeholder='Search via project type or project name'
                     autoComplete='off'
                     value={inputValue}
                     onChange={handleInputChange}

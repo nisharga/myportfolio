@@ -15,7 +15,7 @@ const SingleTechnology: FC<IProps> = ({ name }) => {
             variants={slideIn({ delay: getAnimationDelay(0.2) })}
             initial='hidden'
             animate='show'
-            className='flex justify-start items-center py-2 leading-tight lg:w-2/5 text-lg'
+            className='flex justify-start items-center py-2 leading-tight lg:w-full text-lg'
         >
             <div className='flex justify-center items-center w-5 h-5 rounded-full mr-4 text-sm  '>
                 <Icons.CircleCheck className=' ' />

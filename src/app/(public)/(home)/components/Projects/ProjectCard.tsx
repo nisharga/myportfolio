@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const ProjectCard = ({
+    id,
     name,
     url,
     repo,
@@ -30,7 +31,7 @@ const ProjectCard = ({
             className='col-span-12 md:col-span-6 lg:col-span-4'
         >
             <Link
-                href={`/projects/${project?.id}`}
+                href={`/projects/${id}`}
                 className='block w-full overflow-hidden transition-all duration-200 rounded-md shadow-xl group bg-bg-secondary dark:shadow-2xl'
             >
                 <div className='overflow-hidden h-[200px]'>
