@@ -12,11 +12,11 @@ export const PROJECT_TYPE = [
     {
         id: 3,
         title: 'Full Stack',
-        value: 'full_stack'
+        value: 'full-stack'
     },
     {
         id: 4,
         title: 'Mobile App',
-        value: 'mobile_app'
+        value: 'mobile-app'
     }
 ];

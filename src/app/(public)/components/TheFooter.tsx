@@ -19,7 +19,6 @@ const TheFooter = () => {
                 );
 
                 const data = await response.json();
-                console.log('🚀 ~ fetchViews ~ data:', data);
 
                 if (data.success && data.data?.visit) {
                     setViews(data.data?.visit);

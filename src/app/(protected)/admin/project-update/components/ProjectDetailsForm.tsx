@@ -7,7 +7,7 @@ const ProjectDetailsForm = () => {
     const {
         register,
         handleSubmit,
-        // reset,
+        reset,
         formState: { errors }
     } = useForm();
 
@@ -31,7 +31,7 @@ const ProjectDetailsForm = () => {
             }
 
             // Append text fields
-            formData.append('projectName', 'bistro-boss');
+            formData.append('projectName', data.projectName);
             formData.append('liveSiteLink', data.liveSiteLink);
             if (data.frontendGitHub)
                 formData.append('frontendGitHub', data.frontendGitHub);
@@ -50,9 +50,9 @@ const ProjectDetailsForm = () => {
                 }
             );
 
-            if (response.ok) {
+            if (response.status == 200) {
                 toast.success('Project details added successfully!');
-                // reset();
+                reset();
             } else {
                 toast.error('Failed to add project details.');
             }

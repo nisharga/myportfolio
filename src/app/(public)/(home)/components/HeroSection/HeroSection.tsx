@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { useGetHeroDataQuery } from '@/redux/api/heroApi';
 import AvailableForJob from './AvailableForJob';
 import CurrentWork from './CurrentWork';
+import { Icons } from '@/components/Icons';
 
 const HeroSection = () => {
     const { cta, subtitle, title, tagline, description, specialText } =
@@ -63,15 +64,27 @@ const HeroSection = () => {
                                 <span className='block md:inline mr-4'>
                                     I am a
                                 </span>
-                                <Typewriter
-                                    words={data?.data[0]?.changingText}
-                                    loop={25}
-                                    cursor
-                                    cursorStyle='_'
-                                    typeSpeed={70}
-                                    deleteSpeed={50}
-                                    delaySpeed={1000}
-                                />
+                                {!data ? (
+                                    <Typewriter
+                                        words={TYPE_WRITTER_WORDS}
+                                        loop={25}
+                                        cursor
+                                        cursorStyle='_'
+                                        typeSpeed={70}
+                                        deleteSpeed={50}
+                                        delaySpeed={1000}
+                                    />
+                                ) : (
+                                    <Typewriter
+                                        words={data?.data[0]?.changingText}
+                                        loop={25}
+                                        cursor
+                                        cursorStyle='_'
+                                        typeSpeed={70}
+                                        deleteSpeed={50}
+                                        delaySpeed={1000}
+                                    />
+                                )}
                             </motion.h1>
                         </div>
 
@@ -115,14 +128,18 @@ const HeroSection = () => {
                         initial='hidden'
                         animate='show'
                     >
-                        <Image
-                            alt='profile'
-                            width={1000}
-                            height={1000}
-                            loading={'lazy'}
-                            className='w-full object-cover transition-all  '
-                            src='/walking-troll.svg'
-                        />
+                        {!data ? (
+                            <Icons.NoInternet className='mr-10' />
+                        ) : (
+                            <Image
+                                alt='profile'
+                                width={1000}
+                                height={1000}
+                                loading={'lazy'}
+                                className='w-full object-cover transition-all  '
+                                src='/walking-troll.svg'
+                            />
+                        )}
                     </motion.div>
                 </div>
             </Wrapper>

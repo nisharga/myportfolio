@@ -2,48 +2,65 @@ import React from 'react';
 import ProjectCard from '../../ProjectCard';
 import { projectVariants } from '@/components/animation';
 
-const projects = [
-    {
-        id: '1',
-        name: 'beautiful animations',
-        url: 'https://beautiful-animations-kv.vercel.app/',
-        repo: 'https://github.com/vatsalsinghkv/beautiful-animations',
-        img: 'https://user-images.githubusercontent.com/68834718/265277125-da2a6e07-7cf6-411c-b55f-94e372aa6dc8.png',
-        year: 2023,
-        tags: ['CSS Animations', 'Sass']
-    },
-    {
-        id: '2',
-        name: 'easy fix',
-        url: 'https://easy-fix.vercel.app/',
-        repo: 'https://github.com/vatsalsinghkv/easy-fix',
-        img: 'https://user-images.githubusercontent.com/68834718/258852895-df5c6da7-a698-40fb-97c3-a5474314cb85.png',
-        year: 2023,
-        tags: ['React', 'Tailwind']
-    },
-    {
-        id: '3',
-        name: 'image animations',
-        url: 'https://image-animations.vercel.app/',
-        repo: 'https://github.com/vatsalsinghkv/image-animations',
-        img: 'https://github-production-user-asset-6210df.s3.amazonaws.com/68834718/252267106-857c5341-1106-4e84-b7e6-80a668a20ba8.png',
-        year: 2023,
-        tags: ['CSS Animations', 'Sass']
-    }
-];
-const All = () => {
+interface IProps {
+    category: string;
+    createdAt: string;
+    id: string;
+    image: string;
+    liveSiteLink: string;
+    order: number;
+    projectDetailsId: string;
+    projectName: string;
+    projectStack: [];
+}
+
+interface IData {
+    data: IProps[];
+    loading: boolean;
+}
+
+const SkeletonCard = () => (
+    <div className='bg-gray-300 animate-pulse h-64 w-full rounded-xl' />
+);
+
+const All = ({ data, loading }: IData) => {
     return (
         <div className='grid grid-cols-12 gap-6'>
-            {projects?.map((project) => (
-                <ProjectCard
-                    {...project}
-                    key={project.id}
-                    variants={projectVariants}
-                    initial='hidden'
-                    animate='show'
-                    custom={1 - 3}
-                />
-            ))}
+            {loading
+                ? Array(3)
+                      .fill(null)
+                      .map((_, index) => (
+                          <div
+                              key={index}
+                              className='col-span-12 md:col-span-6 lg:col-span-4'
+                          >
+                              <SkeletonCard />
+                          </div>
+                      ))
+                : data?.map(
+                      ({
+                          id,
+                          image,
+                          projectStack,
+                          projectName,
+                          category,
+                          liveSiteLink
+                      }: IProps) => (
+                          <ProjectCard
+                              id={id}
+                              key={id}
+                              img={image}
+                              tags={projectStack}
+                              name={projectName}
+                              category={category}
+                              liveSiteLink={liveSiteLink}
+                              variants={projectVariants}
+                              initial='hidden'
+                              animate='show'
+                              custom={1 - 3}
+                          />
+                      )
+                  )}
         </div>
     );
 };
