@@ -33,7 +33,6 @@ const SingleProjectPage = ({ project, loading }: any) => {
         moreInfo5,
         moreInfo6
     } = project?.projectdetails;
-    console.log('🚀 ~ SingleProjectPage ~ liveLink:', project);
 
     return (
         <div className='mt-10 lg:mt-12'>

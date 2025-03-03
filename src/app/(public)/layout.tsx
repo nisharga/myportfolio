@@ -1,12 +1,33 @@
-'use client';
 import { switchThemeDuration } from '@/configs/switch-theme-duration';
-import { ThemeProvider } from '@/providers/theme-provider';
 import '@/styles/globals.css';
 import React from 'react';
-import { TheFooter, TheHeader } from './components';
-import fontVariables from '@/configs/appConfigs';
-import ReduxProviders from '@/providers/reduxProviders';
-import PreLoader from '@/preloader/preloader';
+import fontVariables, {
+    SITE_DESCRIPTION_DEFAULT,
+    SITE_TITLE_DEFAULT,
+    SITE_TITLE_TEMPLATE_DEFAULT,
+    SITE_VERIFICATION_GOOGLE_DEFAULT
+} from '@/configs/appConfigs';
+import MainLayout from '@/components/MainLayout';
+import { Metadata } from 'next';
+import { SITE_DOMAIN } from '@/configs/env';
+
+export const metadata: Metadata = {
+    metadataBase: new URL(SITE_DOMAIN),
+    title: {
+        default: SITE_TITLE_DEFAULT,
+        template: SITE_TITLE_TEMPLATE_DEFAULT
+    },
+    description: SITE_DESCRIPTION_DEFAULT,
+    verification: {
+        google: SITE_VERIFICATION_GOOGLE_DEFAULT
+    },
+    icons: {
+        icon: {
+            url: '/favicon.svg',
+            type: 'images/svg'
+        }
+    }
+};
 
 export default function RootLayout({
     children
@@ -16,18 +37,7 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
-                <PreLoader />
-                <ReduxProviders>
-                    <ThemeProvider
-                        attribute='class'
-                        defaultTheme='system'
-                        enableSystem
-                    >
-                        <TheHeader />
-                        <main>{children}</main>
-                        <TheFooter />
-                    </ThemeProvider>
-                </ReduxProviders>
+                <MainLayout>{children}</MainLayout>
             </body>
         </html>
     );

@@ -29,6 +29,10 @@ const Projects = () => {
     const [fetchData, setFetchData] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
+    if (!fetchData) {
+        console.error('Data is null or undefined');
+    }
+
     const [activeTab, setActiveTab] = useState('all');
 
     const BASE_URL = `${API_BASE_URL}/project`;

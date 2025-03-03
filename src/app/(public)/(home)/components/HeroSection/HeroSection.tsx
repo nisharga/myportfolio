@@ -103,7 +103,6 @@ const HeroSection = () => {
                         >
                             {data?.data[0]?.title}
                         </motion.p>
-
                         <div className=''>
                             {data?.data[0]?.companyUrl &&
                             data?.data[0]?.workCompany ? (

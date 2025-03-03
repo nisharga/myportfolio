@@ -11,8 +11,6 @@ const ProjectPage = () => {
     const BASE_URL = `${API_BASE_URL}/project`;
 
     useEffect(() => {
-        if (!id) return;
-
         const fetchProject = async () => {
             setLoading(true);
             try {

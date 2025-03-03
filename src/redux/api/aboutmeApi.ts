@@ -1,16 +1,16 @@
 import { baseApi } from '../baseApi';
 import { tagTypes } from '../tagTypes';
 
-const aboutmeApi = baseApi.injectEndpoints({
+const aboutMeApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        getAboutData: build.query({
+        getAboutMeData: build.query({
             query: () => ({
                 url: `/aboutme`,
                 method: 'GET'
             }),
-            providesTags: [tagTypes.about]
+            providesTags: [tagTypes.resume]
         })
     })
 });
 
-export const { useGetAboutDataQuery } = aboutmeApi;
+export const { useGetAboutMeDataQuery } = aboutMeApi;
