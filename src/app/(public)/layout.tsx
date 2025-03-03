@@ -1,21 +1,15 @@
-import {
+import { switchThemeDuration } from '@/configs/switch-theme-duration';
+import '@/styles/globals.css';
+import React from 'react';
+import fontVariables, {
     SITE_DESCRIPTION_DEFAULT,
     SITE_TITLE_DEFAULT,
     SITE_TITLE_TEMPLATE_DEFAULT,
     SITE_VERIFICATION_GOOGLE_DEFAULT
-} from '@/configs';
+} from '@/configs/appConfigs';
+import MainLayout from '@/components/MainLayout';
+import { Metadata } from 'next';
 import { SITE_DOMAIN } from '@/configs/env';
-import { switchThemeDuration } from '@/configs/switch-theme-duration';
-import { ThemeProvider } from '@/providers/theme-provider';
-import '@/styles/globals.css';
-import type { Metadata } from 'next';
-import React from 'react';
-import { TheFooter, TheHeader } from './components';
-import fontVariables from '@/configs/appConfigs';
-import { Provider } from 'react-redux';
-import { store } from '@/redux/store';
-import ReduxProviders from '@/providers/reduxProviders';
-import PreLoader from '@/preloader/preloader';
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_DOMAIN),
@@ -26,6 +20,12 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION_DEFAULT,
     verification: {
         google: SITE_VERIFICATION_GOOGLE_DEFAULT
+    },
+    icons: {
+        icon: {
+            url: '/favicon.svg',
+            type: 'images/svg'
+        }
     }
 };
 
@@ -37,18 +37,7 @@ export default function RootLayout({
     return (
         <html lang='en' className='scroll-smooth'>
             <body className={`${fontVariables} ${switchThemeDuration}`}>
-                <PreLoader />
-                <ReduxProviders>
-                    <ThemeProvider
-                        attribute='class'
-                        defaultTheme='system'
-                        enableSystem
-                    >
-                        <TheHeader />
-                        <main>{children}</main>
-                        <TheFooter />
-                    </ThemeProvider>
-                </ReduxProviders>
+                <MainLayout>{children}</MainLayout>
             </body>
         </html>
     );

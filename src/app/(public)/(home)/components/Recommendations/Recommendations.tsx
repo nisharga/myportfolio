@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client';
 import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 import { Wrapper } from '@/components';
 import { useWindowWidth } from '../../hooks';
 import { getBreakpointsWidth } from '@/utlis/themeHelper';

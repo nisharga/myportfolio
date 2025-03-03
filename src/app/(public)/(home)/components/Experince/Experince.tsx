@@ -16,6 +16,7 @@ import { useGetExperinceDataQuery } from '@/redux/api/experinceApi';
 import Link from 'next/link';
 
 const Experince = () => {
+    const MotionDiv = motion.create('div');
     const windowWidth = useWindowWidth();
     const md = getBreakpointsWidth('md');
     const DEFAULT_ANIMATION_DELAY = windowWidth <= md ? 0.9 : 1.7;
@@ -47,65 +48,64 @@ const Experince = () => {
                         lineColor=''
                     >
                         {data?.data?.map((item: any, index: any) => (
-                            <React.Fragment key={index}>
-                                <VerticalTimelineElement
-                                    visible={true}
-                                    contentStyle={{
-                                        background:
-                                            theme === 'light'
-                                                ? '#f3f4f6'
-                                                : 'rgba(255, 255, 255, 0.05)',
-                                        boxShadow:
-                                            '0px 12px 16px -4px rgba(16, 24, 40, 0.08) , 0px 4px 6px -2px rgba(16, 24, 40, 0.03) ',
-                                        border:
-                                            theme === 'light'
-                                                ? '1px solid #e4e4e7'
-                                                : 'none',
-                                        textAlign: 'left',
-                                        borderRadius: '16px',
-                                        padding: '1.3rem 2rem'
-                                    }}
-                                    contentArrowStyle={{
-                                        borderRight:
-                                            theme === 'light'
-                                                ? '0.4rem solid #9ca3af'
-                                                : '0.4rem solid rgba(255, 255, 255, 0.5)'
-                                    }}
-                                    date={item?.monthFromTo}
-                                    icon={<CgWorkAlt />}
-                                    iconStyle={{
-                                        background:
-                                            theme === 'light'
-                                                ? 'white'
-                                                : 'white',
-                                        fontSize: '1.5rem',
-                                        color: '#1f2937',
-                                        border:
-                                            theme === 'light'
-                                                ? '1px solid #e4e4e7'
-                                                : 'none',
-                                        zIndex: theme === 'light' ? '999' : '-1'
-                                    }}
-                                >
-                                    <h3 className='font-semibold capitalize mb-2'>
-                                        {item?.position}
-                                    </h3>
-                                    <p className='font-normal !mt-0  mb-2'>
-                                        at{' '}
-                                        <Link
-                                            href={item?.companyLinkedin}
-                                            className='font-semibold underline'
-                                            target='_blank'
-                                        >
-                                            {item?.companyName}
-                                        </Link>
-                                        {', '} {item?.companyLocation}
-                                    </p>
-                                    <p className='!mt-1 !font-normal text-gray-700  mb-2 dark:text-white/75'>
-                                        {item?.jobResponsibility}
-                                    </p>
-                                </VerticalTimelineElement>
-                            </React.Fragment>
+                            // <React.Fragment key={index}>
+                            <VerticalTimelineElement
+                                key={index}
+                                visible={true}
+                                contentStyle={{
+                                    background:
+                                        theme === 'light'
+                                            ? '#f3f4f6'
+                                            : 'rgba(255, 255, 255, 0.05)',
+                                    boxShadow:
+                                        '0px 12px 16px -4px rgba(16, 24, 40, 0.08) , 0px 4px 6px -2px rgba(16, 24, 40, 0.03) ',
+                                    border:
+                                        theme === 'light'
+                                            ? '1px solid #e4e4e7'
+                                            : 'none',
+                                    textAlign: 'left',
+                                    borderRadius: '16px',
+                                    padding: '1.3rem 2rem'
+                                }}
+                                contentArrowStyle={{
+                                    borderRight:
+                                        theme === 'light'
+                                            ? '0.4rem solid #9ca3af'
+                                            : '0.4rem solid rgba(255, 255, 255, 0.5)'
+                                }}
+                                date={item?.monthFromTo}
+                                icon={<CgWorkAlt />}
+                                iconStyle={{
+                                    background:
+                                        theme === 'light' ? 'white' : 'white',
+                                    fontSize: '1.5rem',
+                                    color: '#1f2937',
+                                    border:
+                                        theme === 'light'
+                                            ? '1px solid #e4e4e7'
+                                            : 'none',
+                                    zIndex: theme === 'light' ? '999' : '-1'
+                                }}
+                            >
+                                <h3 className='font-semibold capitalize mb-2'>
+                                    {item?.position}
+                                </h3>
+                                <p className='font-normal !mt-0  mb-2'>
+                                    at{' '}
+                                    <Link
+                                        href={item?.companyLinkedin}
+                                        className='font-semibold underline'
+                                        target='_blank'
+                                    >
+                                        {item?.companyName}
+                                    </Link>
+                                    {', '} {item?.companyLocation}
+                                </p>
+                                <p className='!mt-1 !font-normal text-gray-700  mb-2 dark:text-white/75'>
+                                    {item?.jobResponsibility}
+                                </p>
+                            </VerticalTimelineElement>
+                            // </React.Fragment>
                         ))}
                     </VerticalTimeline>
                 </div>
