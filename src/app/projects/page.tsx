@@ -24,8 +24,6 @@ const Projects = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const BASE_URL = `${API_BASE_URL}/project`;
-    const total_pages =
-        Math.ceil(fetchData?.meta?.total / fetchData?.meta?.limit) || 3;
     useEffect(() => {
         const fetchProjects = async () => {
             try {

@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { useWindowWidth } from '../../hooks';
 import { getBreakpointsWidth } from '@/utlis/themeHelper';
 import { Wrapper } from '@/components';
@@ -8,7 +7,8 @@ import { slideUp } from '@/components/animation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/Icons';
-import { useGetAboutDataQuery } from '@/redux/api/aboutmeApi';
+import { useGetAboutMeDataQuery } from '@/redux/api/aboutmeApi';
+import { getBaseUrl } from '@/configs/env';
 
 const AboutMe = () => {
     const windowWidth = useWindowWidth();
@@ -18,7 +18,7 @@ const AboutMe = () => {
     const getAnimationDelay = (i: number, increment = 0.15) =>
         DEFAULT_ANIMATION_DELAY + increment * i;
 
-    const { data } = useGetAboutDataQuery('');
+    const { data } = useGetAboutMeDataQuery('');
 
     return (
         <div className='container '>
@@ -56,23 +56,46 @@ const AboutMe = () => {
                             <p className='text-base my-2 text-gray-600 dark:text-gray-300'>
                                 {data?.data?.[0]?.title3}
                             </p>
-                            <motion.div
-                                variants={slideUp({
-                                    delay: getAnimationDelay(4)
-                                })}
-                                initial='hidden'
-                                animate='show'
-                                className='flex items-center gap-4 md:mt-4'
-                            >
-                                <Link
-                                    href={'https://topmate.io/nisharga_kabir'}
-                                    target='_blank'
-                                    className='text-violet-600 flex items-center gap-1 hover:bg-violet-50 hover:dark:bg-violet-900/10 py-2 px-4 transition-colors rounded-md'
+                            <div className='flex gap-4'>
+                                <motion.div
+                                    variants={slideUp({
+                                        delay: getAnimationDelay(4)
+                                    })}
+                                    initial='hidden'
+                                    animate='show'
+                                    className='flex items-center gap-4 md:mt-4'
                                 >
-                                    Book a 1:1 call
-                                    <Icons.Headset className='ml-1' />
-                                </Link>
-                            </motion.div>
+                                    <Link
+                                        href={
+                                            'https://topmate.io/nisharga_kabir'
+                                        }
+                                        target='_blank'
+                                        className='text-violet-600 flex items-center gap-1 hover:bg-violet-50 hover:dark:bg-violet-900/10 py-2 px-4 transition-colors rounded-md'
+                                    >
+                                        Book a 1:1 call
+                                        <Icons.Headset className='ml-1' />
+                                    </Link>
+                                </motion.div>
+                                <motion.div
+                                    variants={slideUp({
+                                        delay: getAnimationDelay(4)
+                                    })}
+                                    initial='hidden'
+                                    animate='show'
+                                    className='flex items-center gap-4 md:mt-4'
+                                >
+                                    <Link
+                                        href={
+                                            'https://api.whatsapp.com/send?phone=8801515601742'
+                                        }
+                                        target='_blank'
+                                        className='text-violet-600 flex items-center gap-1 hover:bg-violet-50 hover:dark:bg-violet-900/10 py-2 px-4 transition-colors rounded-md'
+                                    >
+                                        Message Me
+                                        <Icons.WhatsApp className='ml-1 w-6 h-6' />
+                                    </Link>
+                                </motion.div>
+                            </div>
                         </div>
                     </div>
 
@@ -86,7 +109,7 @@ const AboutMe = () => {
                             height={1000}
                             className='w-full h-60 md:h-80 rounded-2xl object-cover   transition-all bg-violet-100 
                              '
-                            src={data?.data?.[0]?.upload?.url}
+                            src={data?.data?.[0]?.image || '/nisharga.jpg'}
                         />
                         <span className='font-medium font-sans'>
                             {'< I Build Stuff 🚀 />'}

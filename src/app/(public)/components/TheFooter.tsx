@@ -1,35 +1,13 @@
 'use client';
 import { Icons } from '@/components/Icons';
 import { getBaseUrl } from '@/configs/env';
+import { useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const TheFooter = () => {
-    const [views, setViews] = useState(0);
-
-    useEffect(() => {
-        const fetchViews = async () => {
-            try {
-                const response = await fetch(
-                    `${getBaseUrl()}/resume/view-count`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' }
-                    }
-                );
-
-                const data = await response.json();
-
-                if (data.success && data.data?.visit) {
-                    setViews(data.data?.visit);
-                }
-            } catch (error) {
-                console.error('Failed to fetch views:', error);
-            }
-        };
-
-        fetchViews();
-    }, []);
+    const { count } = useAppSelector((state: RootState) => state.count);
     return (
         <footer className='max-w-lg mx-auto mb-5 font-mono text-xs text-center flex gap-2 items-center justify-center'>
             <Link
@@ -43,7 +21,7 @@ const TheFooter = () => {
             </Link>
             <div className='flex gap-1'>
                 <Icons.Eye className='w-4 h-4' />
-                <p>{views}</p>
+                <p>{count}</p>
             </div>
         </footer>
     );
